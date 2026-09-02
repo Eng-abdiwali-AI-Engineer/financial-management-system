@@ -1,0 +1,2 @@
+import React from 'react';
+export default function Panel({title,subtitle,children,action}){return <section className="rounded-xl border border-slate-100 bg-white shadow-card"><div className="flex items-center justify-between border-b border-slate-100 px-5 py-4"><div><h2 className="text-sm font-bold text-slate-900">{title}</h2>{subtitle&&<p className="mt-0.5 text-[11px] text-slate-400">{subtitle}</p>}</div>{action}</div><div className="p-5">{children}</div></section>}

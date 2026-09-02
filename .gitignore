@@ -1,0 +1,12 @@
+node_modules/
+*.log
+server/finance.db
+.env
+.env.*
+!.env.example
+client/dist/
+
+# Local OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/

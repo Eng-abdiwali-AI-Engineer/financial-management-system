@@ -50,6 +50,9 @@ npm start
 
 The SQLite database is created automatically at `server/finance.db` on first server start.
 
+## Supabase deployment
+The Vercel frontend is ready for a same-origin `/api` deployment. For persistent online data, create a Supabase project and run `supabase/schema.sql` in its SQL Editor. Keep `SUPABASE_SERVICE_ROLE_KEY` and `JWT_SECRET` only in the server deployment environment; never commit them to GitHub.
+
 ## Design reference
 The supplied reference image is stored as `public/design-reference.jpg` for project documentation. The application itself recreates the visual system with responsive HTML/CSS and charts rather than placing the screenshot in the UI.
 

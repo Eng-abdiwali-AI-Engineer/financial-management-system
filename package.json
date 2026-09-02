@@ -9,5 +9,10 @@
     "build": "npm run build --prefix client",
     "start": "npm run start --prefix server"
   },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
   "devDependencies": { "concurrently": "^9.1.2" }
 }

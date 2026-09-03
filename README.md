@@ -50,8 +50,12 @@ npm start
 
 The SQLite database is created automatically at `server/finance.db` on first server start.
 
-## Supabase deployment
-The Vercel frontend is ready for a same-origin `/api` deployment. For persistent online data, create a Supabase project and run `supabase/schema.sql` in its SQL Editor. Keep `SUPABASE_SERVICE_ROLE_KEY` and `JWT_SECRET` only in the server deployment environment; never commit them to GitHub.
+## Vercel + Render deployment
+Deploy `client` as the Vercel project with the repository root as its build context. Set `VITE_API_URL` in Vercel to the public Render service URL followed by `/api`, for example `https://your-service.onrender.com/api`.
+
+Deploy the repository root as a Render Web Service. Render runs `npm install && npm run install:all && npm run build`, then starts the Express API with `npm start`. Set `JWT_SECRET` to a long random value in Render and keep it out of Git.
+
+The current Express service stores SQLite data in `server/finance.db`. This is suitable for local development only; Render's ephemeral filesystem means production data requires migrating the server adapter to a hosted database such as Turso before launch.
 
 ## Design reference
 The supplied reference image is stored as `public/design-reference.jpg` for project documentation. The application itself recreates the visual system with responsive HTML/CSS and charts rather than placing the screenshot in the UI.
@@ -64,5 +68,5 @@ The supplied reference image is stored as `public/design-reference.jpg` for proj
 - Recurring transactions
 - Audit logs
 - CSV/Excel/PDF exports
-- PostgreSQL for multi-user deployment
+- Turso/libSQL adapter for persistent Render storage
 - Secure refresh tokens and production secret management
